@@ -1,0 +1,77 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>User page</title>
+	<style>
+#customers {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#customers td, #customers th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+	background-color: #ddd;
+}
+
+#customers th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #CD2626;
+	color: white;
+}
+</style>
+</h:head>
+<h:body>
+	<h:outputText value="hello #{login}" />
+	<h3>Usuarios conectados</h3>
+	<ul>
+		<ui:repeat value="#{usersConnected.users}" var="user">
+			<li><h:link value="#{user.login}" outcome="user">
+
+				</h:link></li>
+		</ui:repeat>
+	</ul>
+
+
+	<h4>Sessoes compradas por voce</h4>
+	<h:dataTable value="#{ingressoMB.listaIngressos}" var="c">
+		<h:column>
+			<f:facet name="header">Hora</f:facet>
+			<h:outputText value="#{c.hora}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Sala</f:facet>
+			<h:outputText value="#{c.sala}" />
+		</h:column>
+
+	</h:dataTable>
+
+	<p>
+		<a href="http://localhost:1880/reset">adicione um filme ao cinema</a>
+	</p>
+
+	<p>
+		<a href="http://localhost:8080/Cinema/lista.jsf">listar filmes em
+			cartaz</a>
+	</p>
+
+	<p>
+		<a href="http://localhost:8080/Cinema/users.jsf">listar usuarios
+			no sistema</a>
+	</p>
+</h:body>
+
+
+</html>

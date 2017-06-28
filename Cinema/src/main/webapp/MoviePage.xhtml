@@ -1,0 +1,30 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/include/template.xhtml">
+	
+	<ui:define name="titulo">
+		<title>Selecione um Filme</title>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<h:form>
+			<h1>Seleção de Filmes</h1>
+			
+			<h:messages />
+			<fieldset>
+				<p>Adicione um Filme:</p>
+				<p>
+					<h:inputText value="#{filmeMB.filme.name}" 
+						required="true" requiredMessage="Filme obrigatório" />
+				</p>
+
+				
+				<p><h:commandButton action="#{filmeMB.cadastrar}" 
+					value="add" /></p>
+			</fieldset>
+		</h:form>
+		<p><a href="userpage.jsf">voltar para pagina inicial</a></p>
+	</ui:define>
+</ui:composition>

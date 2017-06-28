@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/include/template.xhtml">
+
+	<ui:define name="titulo">
+		<title>Filmes cadastrados</title>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<h1>Lista de filmes</h1>
+
+		<h:dataTable value="#{movieMB.listaMovies}" var="c">
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{c.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nota</f:facet>
+				<h:outputText value="#{c.nota}" />
+			</h:column>
+			<h:column>
+
+				<f:facet name="header">Action</f:facet>
+				<h:form>
+					<h:commandLink value="Delete" action="#{movieMB.deletarFilme(c)}" />
+				</h:form>
+			</h:column>
+
+		</h:dataTable>
+		
+		<br></br>
+		<p><a href="http://localhost:8080/Cinema/aloc">ir para alocação</a></p>
+		<p><a href="userpage.jsf">voltar para pagina inicial</a></p>
+
+	</ui:define>
+</ui:composition>
